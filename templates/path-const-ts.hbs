@@ -1,0 +1,21 @@
+{{#each paths}}
+const {{key}} = {
+    {{#each value}}
+    {{name}}: '{{path}}',
+    {{#if @last ~}}
+
+    {{/if}}
+    {{~/each}}  
+}
+{{#if @last}}
+
+{{/if}}
+{{~/each}}
+export const API_URL = {
+{{#each paths}}
+    {{key}},
+    {{#if @last ~}}
+
+    {{/if}}
+{{~/each}}
+}

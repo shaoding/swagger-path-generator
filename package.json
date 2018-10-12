@@ -1,0 +1,32 @@
+{
+  "name": "swagger-path-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./bin/lib/generatePathFile.js",
+  "bin": "./bin/index.js",
+  "scripts": {
+    "start": "node bin/index.js -s test/swagger.json -o test/path-const.ts",
+    "dist": "tsc",
+    "publish-patch": "npm version patch && npm publish",
+    "build:dev": "tsc",
+    "build": "tsc --sourceMap false"
+  },
+  "keywords": [
+    "swagger",
+    "path",
+    "codegen"
+  ],
+  "author": "shaoding <shaodingzhang@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/handlebars": "^4.0.39",
+    "@types/lodash": "^4.14.117",
+    "@types/node": "^10.11.7",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.1.2"
+  },
+  "dependencies": {
+    "handlebars": "^4.0.12",
+    "lodash": "^4.17.11"
+  }
+}

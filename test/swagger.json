@@ -1,0 +1,106 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "v1",
+        "title": "My API"
+    },
+    "paths": {
+        "/api/client/user/list": {
+            "get": {
+                "tags": ["User"],
+                "operationId": "ApiClientUserListGet",
+                "consumes": [],
+                "produces": ["text/plain", "application/json", "text/json"],
+                "parameters": [{
+                    "name": "startIndex",
+                    "in": "query",
+                    "required": false,
+                    "type": "integer",
+                    "format": "int32"
+                }, {
+                    "name": "count",
+                    "in": "query",
+                    "required": false,
+                    "type": "integer",
+                    "format": "int32"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/ResponsePack[PagedItemsResponse[ClientUser]]"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/client/user/roles": {
+            "get": {
+                "tags": ["User"],
+                "operationId": "ApiClientUserRolesGet",
+                "consumes": [],
+                "produces": ["text/plain", "application/json", "text/json"],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/ResponsePack[PagedItemsResponse[ApplicationUserRole]]"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/client/user/add": {
+            "post": {
+                "tags": ["User"],
+                "operationId": "ApiClientUserAddPost",
+                "consumes": ["application/json-patch+json", "application/json", "text/json", "application/*+json"],
+                "produces": ["text/plain", "application/json", "text/json"],
+                "parameters": [{
+                    "name": "role",
+                    "in": "query",
+                    "required": false,
+                    "type": "string"
+                }, {
+                    "name": "userAccount",
+                    "in": "body",
+                    "required": false,
+                    "schema": {
+                        "$ref": "#/definitions/UserAccount"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/ResponsePack[VoidResponse]"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/client/user/delete": {
+            "delete": {
+                "tags": ["User"],
+                "operationId": "ApiClientUserDeleteDelete",
+                "consumes": [],
+                "produces": ["text/plain", "application/json", "text/json"],
+                "parameters": [{
+                    "name": "userName",
+                    "in": "query",
+                    "required": false,
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/ResponsePack[VoidResponse]"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {}
+}

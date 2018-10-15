@@ -1,6 +1,6 @@
 {
   "name": "swagger-path-generator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "./bin/lib/generatePathFile.js",
   "bin": "./bin/index.js",
